@@ -25,5 +25,11 @@ function generatePassword() {
         newPassword += data[Math.floor(Math.random()* data.length)];
     }
     passwordOutput.value = newPassword;
-    
+
+    passwordOutput.select();
+    document.execCommand('copy');
+    generateButton.innerHTML ='MDP copié';
+    setTimeout( () => {
+        generateButton.innerHTML= "Générer mot de passe";
+    },3000)
 }
