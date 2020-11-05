@@ -105,7 +105,7 @@ body #password-generator .flex label {
 body #password-generator .flex label:hover {
   filter: sepia(70%);
 }
-body #password-generator button {
+#generateButton {
   outline: none;
   background: #d5d4ff;
   border: none;
@@ -117,8 +117,26 @@ body #password-generator button {
   font-size: 1.2rem;
   transition: 0.2s ease;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
 }
-body #password-generator button:hover {
-  transform: translateX(4px);
-  filter: brightness(120%);
+
+#generateButton span {
+  position: relative;
+  pointer-events: none;
+}
+#generateButton::before {
+  --size: 0;
+  content: '';
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+	height: var(--size);
+	background: radial-gradient(circle closest-side, rgb(255, 219, 59), transparent);
+	transform: translate(-50%, -50%);
+  transition: all .2s ease;
+}
+#generateButton:hover::before {
+  --size:400px;
 }

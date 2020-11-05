@@ -29,7 +29,16 @@ function generatePassword() {
     passwordOutput.select();
     document.execCommand('copy');
     generateButton.innerHTML ='MDP copié';
+    console.log(generateButton);
     setTimeout( () => {
         generateButton.innerHTML= "Générer mot de passe";
     },3000)
 }
+
+document.getElementById('generateButton').addEventListener('mousemove',(e) => {
+    
+    const x = e.pageX - e.target.offsetLeft-436
+    const y = e.pageY - e.target.offsetTop-145
+    e.target.style.setProperty('--x', `${x}px`)
+    e.target.style.setProperty('--y', `${y}px`)
+})
